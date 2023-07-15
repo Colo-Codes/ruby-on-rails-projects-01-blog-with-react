@@ -1,1 +1,17 @@
 <h1>New article</h1>
+<%# form_for is a helper that builds an HTML form for use with a Rails model object. \
+By default, form_for assumes the form is for creating or updating an object of the \
+class given as the first argument. %>
+<%= form_for :article, url: articles_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
