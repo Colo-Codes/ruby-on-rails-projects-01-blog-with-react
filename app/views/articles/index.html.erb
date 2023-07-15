@@ -1,0 +1,23 @@
+<h1>Index of articles</h1>
+<%# The @articles variable is an array of all the articles that have been created so far. %>
+<%# The each method iterates over each article in the array and assigns it to the article variable. %>
+<%# The code inside the block is run for each article. %>
+<%# The article variable is available inside the block, so we can use it to display the article's title and body. %>
+<%# The link_to helper method creates a hyperlink to the specified URL. %>
+<%# The first argument is the text that will be displayed in the link. %>
+<% @articles.each do |article| %>
+  <p>
+    <strong>ID:</strong>
+    <%= article.id %>
+    <p>
+      <strong>Title:</strong>
+      <%= article.title %>
+    </p>
+    <p>
+      <strong>Body:</strong>
+      <%= article.body %>
+    </p>
+    <p>
+      <%= link_to 'Show', article_path(article) %>
+    </p>
+  <% end %>
