@@ -1,2 +1,6 @@
 <h1>Welcome to the blog</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<ul>
+  <li><%= link_to 'List articles', controller: 'articles' %></li>
+  <li><%= link_to 'New article', new_article_path %></li>
+</ul>
