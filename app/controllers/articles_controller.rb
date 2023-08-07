@@ -10,7 +10,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def new; end
+  def new
+    @article = Article.new
+  end
 
   def create
     # Create a new model instance using the params hash
@@ -18,10 +20,12 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     # Save the model in the database
-    @article.save
-
-    # Redirect the user to the show action
-    redirect_to @article
+    if @article.save
+      # Redirect the user to the show action
+      redirect_to @article
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
 
   private
